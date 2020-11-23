@@ -1,1 +1,1 @@
-# chess_mk3
+# chess-mk3
