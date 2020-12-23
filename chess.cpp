@@ -15,23 +15,23 @@ string getWhitePawnMoves(bboard, bboard, bboard);
 string getWhiteKingMoves(bboard, bboard);
 
 namespace BoardMask {
-    bboard rank8 = 18374686479671623680ULL;
-    bboard rank7 = 71776119061217280ULL;
-    bboard rank6 = 280375465082880ULL;
-    bboard rank5 = 1095216660480ULL;
-    bboard rank4 = 4278190080ULL;
-    bboard rank3 = 16711680ULL;
-    bboard rank2 = 65280ULL;
-    bboard rank1 = 255ULL;
+    bboard rank8 = 0xFF00000000000000ULL;
+    bboard rank7 = 0x00FF000000000000ULL;
+    bboard rank6 = 0x0000FF0000000000ULL;
+    bboard rank5 = 0x000000FF00000000ULL;
+    bboard rank4 = 0x00000000FF000000ULL;
+    bboard rank3 = 0x0000000000FF0000ULL;
+    bboard rank2 = 0x000000000000FF00ULL;
+    bboard rank1 = 0x00000000000000FFULL;
     
-    bboard fileH = 9259542123273814144ULL;
-    bboard fileG = 4629771061636907072ULL;
-    bboard fileF = 2314885530818453536ULL;
-    bboard fileE = 1157442765409226768ULL;
-    bboard fileD = 578721382704613384ULL;
-    bboard fileC = 289360691352306692ULL;
-    bboard fileB = 144680345676153346ULL;
-    bboard fileA = 72340172838076673ULL;
+    bboard fileH = 0x8080808080808080ULL;
+    bboard fileG = 0x4040404040404040ULL;
+    bboard fileF = 0x2020202020202020ULL;
+    bboard fileE = 0x1010101010101010ULL;
+    bboard fileD = 0x0808080808080808ULL;
+    bboard fileC = 0x0404040404040404ULL;
+    bboard fileB = 0x0202020202020202ULL;
+    bboard fileA = 0x0101010101010101ULL;
 }
 
 int main() {
@@ -45,16 +45,17 @@ int main() {
         "-------X"
         "-------X";
     bboard testBoard = 0;
-    getBBoard(testBoard, stringBoard);
-    cout << testBoard << endl;
+    //getBBoard(testBoard, stringBoard);
+    //cout << testBoard << endl;
     
     bboard WP = 0, WR = 0, WN = 0, WB = 0, WQ = 0, WK = 0;
     bboard BP = 0, BR = 0, BN = 0, BB = 0, BQ = 0, BK = 0;
-    getInitialBoardState(WP, WR, WN, WB, WQ, WK, BP, BR, BN, BB, BQ, BK);
+    printBBoard(BoardMask::rank5);
+    //getInitialBoardState(WP, WR, WN, WB, WQ, WK, BP, BR, BN, BB, BQ, BK);
     //printBBoard((WP<<7)&~BoardMask::fileA);
     //printBBoard((WP<<9)&~BoardMask::fileH);
-    printBoardState(WP, WR, WN, WB, WQ, WK, BP, BR, BN, BB, BQ, BK);
-    getWhiteMoves(WP, WR, WN, WB, WQ, WK, BP, BR, BN, BB, BQ, BK);
+    //printBoardState(WP, WR, WN, WB, WQ, WK, BP, BR, BN, BB, BQ, BK);
+    //getWhiteMoves(WP, WR, WN, WB, WQ, WK, BP, BR, BN, BB, BQ, BK);
 }
 
 bboard getWhiteMoves(bboard WP, bboard WR, bboard WN, bboard WB, bboard WQ, bboard WK,
